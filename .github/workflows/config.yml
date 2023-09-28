@@ -1,0 +1,22 @@
+name: Hardcoded Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy Application
+        run: |
+          # This is where sensitive information is hardcoded
+          API_KEY="my-secret-api-key"
+
+          # Deploy the application using the hardcoded API key
+          ./deploy-script.sh $API_KEY
